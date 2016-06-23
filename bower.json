@@ -1,6 +1,7 @@
 {
   "name": "fastboot-auth-example",
   "dependencies": {
+    "bootstrap": "3.3.6",
     "ember": "~2.6.0",
     "ember-cli-shims": "0.1.1",
     "ember-cli-test-loader": "0.2.2",
