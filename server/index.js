@@ -18,7 +18,10 @@ module.exports = function(app) {
   var morgan  = require('morgan');
   app.use(morgan('dev'));
 
+  // Allow all CORS requests
+  var cors = require('cors');
+  app.use(cors());
+
   mocks.forEach(function(route) { route(app); });
   proxies.forEach(function(route) { route(app); });
-
 };

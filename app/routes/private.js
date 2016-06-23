@@ -16,7 +16,7 @@ export default Ember.Route.extend({
   model() {
     let token = this.get('session.token');
 
-    return this.get('ajax').request(`${config.apiUrl}/private-data`, {
+    return this.get('ajax').request(`${config.apiHost}/private-data`, {
       headers: {
         authorization: `Bearer ${token}`
       }

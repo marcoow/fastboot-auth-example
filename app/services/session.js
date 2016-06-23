@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 const { computed, inject: { service } } = Ember;
 
-const COOKIE_REGEXP = 'session-token';
+const COOKIE_NAME = 'session-token';
 
 export default Ember.Service.extend({
   cookies: service(),
@@ -11,10 +11,10 @@ export default Ember.Service.extend({
 
   token: computed({
     get() {
-      return this.get('cookies').read(COOKIE_REGEXP);
+      return this.get('cookies').read(COOKIE_NAME);
     },
     set(_, value) {
-      this.get('cookies').write(COOKIE_REGEXP, value);
+      this.get('cookies').write(COOKIE_NAME, value);
       return value;
     }
   })

@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
       e.preventDefault();
 
       let { username, password } = this.getProperties('username', 'password');
-      this.get('ajax').request(`${config.apiUrl}/token`, {
+      this.get('ajax').request(`${config.apiHost}/token`, {
         method: 'POST',
         data: { username, password }
       }).then(({ token }) => {
