@@ -1,0 +1,19 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      {{#link-to 'index' class='navbar-brand'}}FastBoot Auth Example{{/link-to}}
+    </div>
+
+    <ul class="nav navbar-nav navbar-left">
+      {{#link-to 'private' tagName='li' class='navbar-link'}}
+        <a>Private Route</a>
+      {{/link-to}}
+    </ul>
+    
+    {{#if session.isAuthenticated}}
+      <a {{action 'logout'}} class="btn btn-danger navbar-btn navbar-right">Logout</a>
+    {{else}}
+      {{#link-to 'login' class='btn btn-success navbar-btn navbar-right'}}Login{{/link-to}}
+    {{/if}}
+  </div>
+</nav>
