@@ -19,7 +19,7 @@ module.exports = function(environment) {
     },
 
     fastboot: {
-      hostWhitelist: [/^localhost:\d+$/]
+      hostWhitelist: [/^localhost:\d+$/, 'fastboot.example']
     }
   };
 
@@ -30,7 +30,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-    ENV.apiHost = 'http://localhost:4200/api';
+    ENV.apiHost = 'http://fastboot.example/api';
   }
 
   if (environment === 'test') {

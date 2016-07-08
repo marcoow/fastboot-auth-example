@@ -7,7 +7,7 @@ export default Ember.Component.extend({
 
   actions: {
     logout() {
-      this.set('session.token', null);
+      this.set('session.isAuthenticated', false);
       this.getAttr('on-logout')();
     }
   }

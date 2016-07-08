@@ -21,6 +21,7 @@
   "devDependencies": {
     "body-parser": "^1.15.2",
     "broccoli-asset-rev": "^2.4.2",
+    "cookie-parser": "^1.4.3",
     "cors": "^2.7.1",
     "ember-ajax": "^2.0.1",
     "ember-cli": "2.6.2",
@@ -44,7 +45,9 @@
     "ember-welcome-page": "^1.0.1",
     "express": "^4.14.0",
     "glob": "^4.5.3",
+    "install": "^0.8.1",
     "loader.js": "^4.0.1",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "npm": "^3.10.5"
   }
 }

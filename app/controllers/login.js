@@ -15,8 +15,8 @@ export default Ember.Controller.extend({
       this.get('ajax').request(`${config.apiHost}/token`, {
         method: 'POST',
         data: { username, password }
-      }).then(({ token }) => {
-        this.get('session').set('token', token);
+      }).then(() => {
+        this.set('session.isAuthenticated', true);
         this.transitionToRoute('index');
       }).catch(() => {
         this.set('error', 'login failed');

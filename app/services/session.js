@@ -2,16 +2,14 @@ import Ember from 'ember';
 
 const { computed, inject: { service } } = Ember;
 
-const COOKIE_NAME = 'session-token';
+const COOKIE_NAME = 'has-session';
 
 export default Ember.Service.extend({
   cookies: service(),
 
-  isAuthenticated: computed.notEmpty('token'),
-
-  token: computed({
+  isAuthenticated: computed({
     get() {
-      return this.get('cookies').read(COOKIE_NAME);
+      return this.get('cookies').read(COOKIE_NAME) === 'true';
     },
     set(_, value) {
       this.get('cookies').write(COOKIE_NAME, value);

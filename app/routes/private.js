@@ -5,6 +5,8 @@ const { inject: { service } } = Ember;
 
 export default Ember.Route.extend({
   session: service(),
+  fastboot: service(),
+  cookies: service(),
   ajax: service(),
 
   beforeModel() {
@@ -14,13 +16,20 @@ export default Ember.Route.extend({
   },
 
   model() {
-    let token = this.get('session.token');
+    let options = {};
+    if (this.get('fastboot.isFastBoot')) {
+      let token = this.get('cookies').read('token');
+      options.headers = {
+        'Cookie': `token=${token}`
+      };
+    } else {
+      options.xhrFields = {
+        crossDomain: true,
+        withCredentials: true
+      };
+    }
 
-    return this.get('ajax').request(`${config.apiHost}/private-data`, {
-      headers: {
-        authorization: `Bearer ${token}`
-      }
-    }).then((response) => {
+    return this.get('ajax').request(`${config.apiHost}/private-data`, options).then((response) => {
       return response['private-data'];
     });
   }

@@ -4,8 +4,8 @@ module.exports = function(app) {
   var privateDataRouter = express.Router();
 
   privateDataRouter.get('/', function(req, res) {
-    authorizationHeader = req.headers.authorization;
-    if (authorizationHeader && authorizationHeader.match(/Bearer .+/)) {
+    var token = req.cookies.token;
+    if (token) {
       res.send({
         'private-data': [
           'this is private',
@@ -18,5 +18,5 @@ module.exports = function(app) {
     }
   });
 
-  app.use('/api/private-data', privateDataRouter);
+  app.use('/api/private-data', require('cookie-parser')(), privateDataRouter);
 };

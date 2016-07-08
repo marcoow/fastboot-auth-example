@@ -20,7 +20,10 @@ module.exports = function(app) {
 
   // Allow all CORS requests
   var cors = require('cors');
-  app.use(cors());
+  app.use(cors({
+    origin: 'http://fastboot.example',
+    credentials: true
+  }));
 
   mocks.forEach(function(route) { route(app); });
   proxies.forEach(function(route) { route(app); });
