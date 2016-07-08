@@ -1,7 +1,17 @@
 # Fastboot-auth-example
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This example app shows how handling auth in Ember apps can be implemented when
+using [FastBoot](https://github.com/ember-fastboot/fastboot) which requires the
+user's authentication state to be kept in sync between the Ember app running in
+the browser and the FastBoot server.
+
+The `master` branch of this repo uses classic token based authorization of API
+requests using an `Authorization` header whereas the `cookie-based` branch uses
+cookies for transmitting the token to the API server which is more secure but
+has some implications on domains etc.
+
+I'm introducing the concepts behind these apps at
+[EmberCamp London, July 12th 2016](http://embercamp.com).
 
 ## Prerequisites
 
@@ -25,29 +35,15 @@ You will need the following things properly installed on your computer.
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
-### Code Generators
+In order to run the app with FastBoot, do
 
-Make use of the many generators for code, try `ember help generate` for more details
+* `ember fastboot --serve-assets`
+* `ember serve` (this is required as the app needs the mock server)
+* Visit your app at [http://localhost:3000](http://localhost:3000).
 
-### Running Tests
+## License
 
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
+This example app was developed by and &copy;
+[simplabs GmbH/Marco Otte-Witte](http://simplabs.com) and contributors. It is
+released under the
+[MIT License](https://github.com/simplabs/ember-simple-auth/blob/master/LICENSE).
