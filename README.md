@@ -32,9 +32,36 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
+In order to be able to share cookies between the mock server running in the
+Ember CLI development server and the fastboot server both need to run on the
+same domain. The demo app expects that domain to be `fastboot.example` so that
+requests to `http://fastboot.example/api` will be proxied to the mock server
+and all other requests to the fastboot server.
+
+* add an alias for localhost to your `/etc/hosts` file:
+  ```
+  127.0.0.1 fastboot.example
+  ```
+* setup a proxy server to proxy requests to `http://fastboot.example/api` to
+  the Ember CLI mock server and all other requests to the FastBoot server. If
+  you're using Nginx this server definition should work:
+  ```
+  server {
+    listen       80;
+    server_name  fastboot.example;
+
+    location / {
+      proxy_pass http://localhost:3000;
+    }
+
+    location /api {
+      proxy_pass http://localhost:4200;
+    }
+  }
+  ```
 * `ember fastboot --serve-assets`
 * `ember serve` (this is required as the app needs the mock server)
-* Visit the app at [http://localhost:3000](http://localhost:3000).
+* Visit the app at [http://fastboot.example](http://fastboot.example).
 
 ## License
 
