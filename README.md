@@ -32,14 +32,9 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
-* `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-In order to run the app with FastBoot, do
-
 * `ember fastboot --serve-assets`
 * `ember serve` (this is required as the app needs the mock server)
-* Visit your app at [http://localhost:3000](http://localhost:3000).
+* Visit the app at [http://localhost:3000](http://localhost:3000).
 
 ## License
 
